@@ -40,14 +40,16 @@ const SignInPage = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-purple-50">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 transition-colors duration-200">
       <div className="w-full max-w-md px-4 py-8">
-        <div className="bg-white shadow-xl rounded-2xl p-8 border border-gray-100">
+        <div className="bg-white dark:bg-gray-800 shadow-xl dark:shadow-gray-900/30 rounded-2xl p-8 border border-gray-100 dark:border-gray-700 transition-colors duration-200">
           <div className="text-center mb-8">
             <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               Welcome Back
             </h1>
-            <p className="text-gray-500 mt-2">Sign in to your account</p>
+            <p className="text-gray-500 dark:text-gray-400 mt-2">
+              Sign in to your account
+            </p>
           </div>
 
           <form
@@ -58,7 +60,7 @@ const SignInPage = () => {
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm font-medium text-gray-700 mb-2"
+                className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
               >
                 Email address
               </label>
@@ -69,13 +71,13 @@ const SignInPage = () => {
                   {...register("email")}
                   className={`block w-full px-4 py-3 rounded-xl border ${
                     errors.email
-                      ? "border-red-300 ring-red-500"
-                      : "border-gray-200 hover:border-blue-400"
-                  } focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200`}
+                      ? "border-red-300 ring-red-500 dark:border-red-500"
+                      : "border-gray-200 dark:border-gray-700 hover:border-blue-400 dark:hover:border-blue-500"
+                  } focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors duration-200`}
                   placeholder="Enter your email"
                 />
                 {errors.email && (
-                  <p className="mt-2 text-sm text-red-600">
+                  <p className="mt-2 text-sm text-red-600 dark:text-red-400">
                     {errors.email.message}
                   </p>
                 )}
@@ -85,7 +87,7 @@ const SignInPage = () => {
             <div>
               <label
                 htmlFor="password"
-                className="block text-sm font-medium text-gray-700 mb-2"
+                className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
               >
                 Password
               </label>
@@ -96,13 +98,13 @@ const SignInPage = () => {
                   {...register("password")}
                   className={`block w-full px-4 py-3 rounded-xl border ${
                     errors.password
-                      ? "border-red-300 ring-red-500"
-                      : "border-gray-200 hover:border-blue-400"
-                  } focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200`}
+                      ? "border-red-300 ring-red-500 dark:border-red-500"
+                      : "border-gray-200 dark:border-gray-700 hover:border-blue-400 dark:hover:border-blue-500"
+                  } focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors duration-200`}
                   placeholder="Enter your password"
                 />
                 {errors.password && (
-                  <p className="mt-2 text-sm text-red-600">
+                  <p className="mt-2 text-sm text-red-600 dark:text-red-400">
                     {errors.password.message}
                   </p>
                 )}
@@ -110,15 +112,17 @@ const SignInPage = () => {
             </div>
 
             {errors.root && (
-              <div className="rounded-lg bg-red-50 p-4">
-                <p className="text-sm text-red-600">{errors.root.message}</p>
+              <div className="rounded-lg bg-red-50 dark:bg-red-900/20 p-4">
+                <p className="text-sm text-red-600 dark:text-red-400">
+                  {errors.root.message}
+                </p>
               </div>
             )}
 
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full py-3 px-4 flex justify-center items-center gap-2 text-sm font-semibold rounded-xl text-white bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
+              className="w-full py-3 px-4 flex justify-center items-center gap-2 text-sm font-semibold rounded-xl text-white bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
             >
               {isLoading ? (
                 <>
